@@ -27,7 +27,7 @@ streamlit.dataframe(fruits_to_show)
 
 # Create the repeatable code block (called af function)
 def get_fruityvice_data(this_fruit_choice):
-   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice)
    fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
    return fruityvice_normalized
       
@@ -64,11 +64,11 @@ streamlit.stop()
 
 
 # Allow the end user to add a fruit to the list
-add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'Jackfruit')
-streamlit.write('Thanks for adding ', add_my_fruit)
+# add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'Jackfruit')
+# streamlit.write('Thanks for adding ', add_my_fruit)
 
 # This will not work correctly, but just go with it for now
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+# my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
 
 
